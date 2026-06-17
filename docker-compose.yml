@@ -1,0 +1,8 @@
+services:
+  twilio-mcp:
+    build: .
+    restart: unless-stopped
+    network_mode: host
+    env_file: .env
+    stdin_open: true
+    tty: false
