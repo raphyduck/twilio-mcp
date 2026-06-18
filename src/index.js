@@ -248,7 +248,7 @@ server.tool(
 
 async function main() {
   // Start the webhook server first (call/SMS lifecycle events).
-  startWebhook();
+  if (!process.env.WEBHOOK_DISABLED) startWebhook();
 
   const transport = new StdioServerTransport();
   await server.connect(transport);
