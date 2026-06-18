@@ -106,7 +106,7 @@ export function createWebhookApp() {
 export function startWebhook() {
   const port = Number(process.env.WEBHOOK_PORT) || 3001;
   const app = createWebhookApp();
-  const server = app.listen(port, '127.0.0.1', () => {
+  const server = app.listen(port, process.env.WEBHOOK_HOST || '127.0.0.1', () => {
     log(`listening on 127.0.0.1:${port}`);
   });
   return server;
